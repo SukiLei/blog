@@ -1,0 +1,33 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<%= "index.html" %>
+<p>
+<%= link_to 'Back to Homepage', controller: 'welcome' %>
+<% if @login_stauts %>
+ <%= link_to 'Login', login_path %>
+ <%= link_to 'Register', new_user_path %>
+<% else %>
+  <%= link_to 'Logout', logout_path %>
+<% end %>
+</p>
+
+<h1><%#= @login_stauts %> </h1>
+
+<h2>Listing users</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Password</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.password %></td>
+    </tr>
+  <% end %>
+</table>

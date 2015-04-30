@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString_1
+  text: MyText_1
+  picture: "D:\work\AWO-7217 Customer Points Report\TestData_1.jpg"
+
+two:
+  title: MyString
+  text: MyText
+  picture: MyString
