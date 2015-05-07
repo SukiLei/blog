@@ -43,3 +43,41 @@
  </div>
     <%= paginate @articles %>
 </table>
+
+
+<div id="container" style="width: 600px; height: 400px"></div>​
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            //alignTicks: false,
+            type: 'line'
+        },
+        title: {
+          text: "Students"
+        },
+        xAxis: {
+          categories: <%= raw @pie_data.map {|stu| stu["name"]}.inspect %>,
+          title: {
+            text: "Name"
+          }
+        },
+        yAxis: [{
+            title: {
+                text: 'age'
+            },
+            gridLineWidth: 1
+        }],
+        tooltip: {
+            formatter: function() {
+                return '<b>'+ this.series.name +'</b><br/>'+
+                    this.x +': '+ this.y;
+            }
+        },
+        series: [{
+            data: <%= @pie_data.map {|stu| stu["age"]}.inspect %>
+        }]
+    });
+});​
+</script>

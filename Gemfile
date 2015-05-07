@@ -41,3 +41,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'carrierwave'
 
 gem 'kaminari'
+
+gem "highcharts-rails"

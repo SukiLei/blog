@@ -64,14 +64,14 @@ class ArticlesController < ApplicationController
 
 	def index
 		#@articles = Article.all
-    article = Article.order("title").page(params[:page]).per(2)
-    a_json = article.as_json
-    a_json.each do |a|
-      puts a["id"]
-      a["title"] = "[#{a["title"]}]"
-    end
-    @articles = Article.where(id: a_json.map(&:id))
-    @login_stauts = session[:current_user].nil?
+	    @articles = Article.order("title").page(params[:page]).per(10)
+	    @articles.each do |a|
+	      puts a["id"]
+	      a.title = "[#{a.title}]"
+	    end
+	    @login_stauts = session[:current_user].nil?
+
+    @pie_data = [{"name" => "a", "age" => 4}, {"name" => "b", "age" => 1}, {"name" => "c", "age" => 5}]
 	end
 
 	private
